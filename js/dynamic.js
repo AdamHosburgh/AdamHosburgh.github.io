@@ -1,5 +1,5 @@
 var pages = ["Home", "Bio", "Resume", "Projects", "Companies", "Contact"]
-var urls = ["index.html", "bio.html", "resume.html", "projects.html", "companies.html", "contact.html"]
+var urls = ["index.html", "Bio.html", "Resume.html", "Projects.html", "Companies.html", "Contact.html"]
 var menu = '<img src="img/Rune.png" />';
 var tab;
 for(var i = 0; i < pages.length; i++){
