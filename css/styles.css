@@ -69,7 +69,6 @@ h1 {
     margin: 20px 20px;
     display: inline-block;
     vertical-align: middle;
-    font-weight: bold;
 }
 
 h2 {
@@ -428,7 +427,7 @@ iframe {
 	text-shadow: 0 1px rgba(0, 0, 0, 0.4);
 	font-size: 14px;
 	font-weight: bold;
-	color: #deb992;
+	color: #1ba098;
 }
 
 /* Disabled tab */
