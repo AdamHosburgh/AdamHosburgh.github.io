@@ -1,5 +1,6 @@
 var pages = ["Home", "Bio", "Resume", "Projects", "Companies", "Contact"]
 var urls = ["index.html", "Bio.html", "Resume.html", "Projects.html", "Companies.html", "Contact\.html"]
+var menu = '';
 var tab;
 for(var i = 0; i < pages.length; i++){
     menu += '<a href="'+urls[i]+'" target="_self"';
