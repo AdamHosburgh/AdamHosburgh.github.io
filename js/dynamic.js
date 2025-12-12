@@ -9,7 +9,7 @@ for(var i = 0; i < pages.length; i++){
     }
     menu += '>'+pages[i]+'</a>';
 }
-menu += '<span id="donate">Useful? Considering supporting me: <a href="https://paypal.me/testlawgicau" target="_blank"><img class="icon" src="img/paypal.png" /></a><a href="http://www.patreon.com/teachingtech" target="_blank"><img class="icon" src="img/patreon.png" /></a></span>';
+
 $('#menu').html(menu);
 function sizeBody(){
     var menuClearance = $('#menu').outerHeight()+30;
@@ -17,7 +17,7 @@ function sizeBody(){
 }
 
 $('head').append('<title>'+pageTitle+'</title>');
-var header ='<table class="head"><tr><td><img src="img/tt.png" class="icon" style="vertical-align:middle;" /></td><td><h1>'+pageTitle+'</h1></td></tr></table>';
+var header ='<table class="head"><tr><td><h1>'+pageTitle+'</h1></td></tr></table>';
 $('#header').html(header);
 
 var up = '^ <span style="font-weight:bold;">TOP</span> ^';
@@ -27,7 +27,7 @@ $( "#up" ).bind( "click", function() {
 });
 
 var footer = `
-<p style="text-align: center;">This page is fully <a href="https://github.com/teachingtechYT/teachingtechYT.github.io" target="_blank">open source</a>. If you find a bug or have a feature request, please post in the <a href="https://github.com/teachingtechYT/teachingtechYT.github.io/issues" target="_blank">issues</a> section. Make sure to read the <a href="https://github.com/teachingtechYT/teachingtechYT.github.io/issues/323" target="_blank">pinned readme</a>.</p>
+<p style="text-align: center;">This page is fully open source and forked from <a href="https://github.com/teachingtechYT/teachingtechYT.github.io" target="_blank">TeachingTech</a>.</p>
     <p style="text-align: center;">This page was created using:</p>
     <ul style="margin-top:-20px;">
         <li><a href="https://jquery.com/" target="_blank">jQuery</a></li>
