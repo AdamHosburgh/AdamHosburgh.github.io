@@ -1,6 +1,6 @@
 var pages = ["Home", "Resume", "Projects", "Contact"]
 var urls = ["index.html", "Resume.html", "Projects.html", "contact.html"]
-var menu = '<img src="img/hamburger_menu.png" />';
+var menu = '<img src="img/Rune.png" />';
 var tab;
 for(var i = 0; i < pages.length; i++){
     menu += '<a href="'+urls[i]+'" target="_self"';
