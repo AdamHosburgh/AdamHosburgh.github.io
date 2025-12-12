@@ -1,6 +1,6 @@
-var pages = ["Home", "Calibration", "Troubleshooting", "Upgrade Guides", "Diagonal Z Hop", "Review Policy", "Sponsors", "Contact"]
-var urls = ["index.html", "calibration.html", "troubleshooting.html", "upgrades.html", "diagonalZhop.html", "reviewpolicy.html", "sponsors.html", "contact.html"]
-var menu = '<img src="img/ttwhite.png" />';
+var pages = ["Home", "Resume", "Projects", "Contact"]
+var urls = ["index.html", "Resume.html", "Projects.html", "contact.html"]
+var menu = '<img src="img/hamburger_menu.png" />';
 var tab;
 for(var i = 0; i < pages.length; i++){
     menu += '<a href="'+urls[i]+'" target="_self"';
