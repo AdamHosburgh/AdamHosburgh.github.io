@@ -3,7 +3,7 @@ body {
     background-color: #051622;
     max-width: 1400px;
     margin: auto;
-    color: #deb992;
+    color: #FFDAB3;
 }
 
 #menu {
@@ -61,7 +61,7 @@ body {
     display:inline-block;
     padding:5px 5px 10px;
     margin: 0 15px 5px;
-    color:#deb992;
+    color:#FFDAB3;
     font-weight: bold;
 }
 
@@ -85,7 +85,7 @@ h4 {
     font-weight: bolder;
     margin: 20px 20px 5px;
     padding: 5px 10px;
-    color:#deb992;
+    color:#FFDAB3;
     background-color: #1ba098;
 }
 
@@ -101,7 +101,7 @@ h6 {
     margin: 20px 20px 5px;
     padding: 5px 10px;
     background-color: #051622;
-    color: #deb992;
+    color: #FFDAB3;
 }
 
 p {
@@ -305,9 +305,9 @@ iframe {
     right: 50px;
     bottom: 50px;
     z-index: 10;
-    color:#deb992;
+    color:#FFDAB3;
     background-color: #051622;
-    border: #deb992 2px solid;
+    border: #FFDAB3 2px solid;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 3px 3px 10px #000000;
@@ -316,7 +316,7 @@ iframe {
 #footer {
     margin-top: 20px;
     padding: 20px;
-    color: #deb992;
+    color: #FFDAB3;
     background-color: #051622;
     position: absolute;
     left: 0;
@@ -360,7 +360,7 @@ iframe {
 
 #donate {
     float: right;
-    color: #deb992;
+    color: #FFDAB3;
     padding: 0px 5px 10px;
     margin: 0 15px 5px;
 
@@ -463,7 +463,7 @@ iframe {
 	padding: 10px;
 
 	background-color: #1ba098;
-	color: #deb992;
+	color: #FFDAB3;
 	font-weight: bold;
 	text-decoration: none;
 	text-shadow: 0 1px rgba(0, 0, 0, 0.4);
@@ -493,7 +493,7 @@ button {
 	padding: 10px 20px;
 	line-height: 100%;
 
-	color: #deb992;
+	color: #FFDAB3;
 	font-size: 14px;
 	text-align: center;
 	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
