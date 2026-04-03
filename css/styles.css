@@ -279,6 +279,12 @@ iframe {
     margin: 0 0 8px;
 }
 
+.project-section-title {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .project-top-media > div {
     margin-bottom: 20px;
 }
@@ -350,6 +356,7 @@ iframe {
     margin: 8px auto 10px;
     font-weight: bold;
     color: #F4F4F4;
+    text-align: center;
 }
 
 .slideshow-dots {
