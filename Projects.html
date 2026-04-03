@@ -21,23 +21,60 @@
     </ul>
 
     <div id="SeniorDesign">
-        <h2>Senior Design - Automated Train Bearing Inspection Machine</h2>
+        <h2>Automated Train Bearing Inspection Machine</h2>
+        <h4>Senior Design Project | Electromechanical Engineer</h4>
+        <h3>Demo</h3>
+        <div class="project-video">
+            <iframe src="https://www.youtube.com/embed/c9q2MfCBLUs" title="Automated Train Bearing Inspection Machine Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
         <p>
-            For my senior design project, I had the oppurtunity to work with a team of 5 other student engineers on a project for Wabtec, a locomotive part manufacturer. 
-            We were tasked with building a machine that could take in a used locomotive bearing, measure its inner and outer diameter to within 0.0001" accuracy,
-            then use lidar to scan the inner and outer surface for scratches and defects larger than 0.03". Finally the machine would mark the bearing as either "pass"
-            or "fail" based on the measurements and send it down a gravity fed slide, where it would be unloaded by an operator.
+            This project was my senior capstone, and it was anything but simple. As a continuation project, my team inherited a partially built machine from the previous year's senior design team: a 10-foot-long automated inspection system designed for Wabtec, a real industrial client in the locomotive industry. The machine was built to replace a manual inspection process that took operators 10-15 minutes per bearing using dial indicators. The goal was to handle up to five 70-pound train bearings at a time, moving them through a series of custom measurement stations to check inner and outer diameters to within 0.0001", scan bearing surfaces for scratches larger than 0.001", and determine each bearing's out-of-roundness. Bearings that passed inspection were automatically marked and ejected down a ramp, ready to be picked up by an overhead crane.
         </p>
         <p>
-            The majority of the design work was already completed when my team starting working on this project. It was our job to essentually "get it working" 
-            As the Electromechanical engineer on the team, my responsibilities mainly involved integrating all of the electrical subsystems with the Programmable Logic Controller
-            (PLC). This included wiring up motors, sensors, the lidar unit, and the human machine interface (HMI). I also wrote much of the PLC code using ladder logic to 
-            control the sequence of operations for the machine.
-
-            Another part of the project I was heavily involved with was the mechanical design of the saftey cage that surrounded the machine. The cage was designed to 
-            keep operators safe from moving parts and to contain any debris that might be ejected from the machine during operation. The cage was built using standard 8020 extruded 
-            alluminum and 1/4" polycarbonate panels. I used Solidworks to design the cage
-         </p>    
+            When my team took over, the machine was mostly assembled but unwired, unprogrammed, and missing its safety enclosure entirely. On top of that, the client introduced a new wrinkle: they wanted the machine modified to handle a different bearing type than the one it was originally designed for. That meant reworking components, particularly the linear springs and dolly foot geometry, to accommodate new dimensions the original design hadn't accounted for, leading to some tight clearance headaches along the way.
+        </p>
+        <p>
+            My role on the team was electromechanical engineer. I was responsible for wiring the entire machine, designing the safety cage that surrounded it, and programming the PLC by writing all of the ladder logic. The safety cage itself was constructed from 80/20 extruded aluminum framing and polycarbonate panels, and every door on the cage was wired with a hall effect sensor tied directly to the emergency stop. This prevented the machine from physically operating while any door was open. One part of the cage I'm particularly proud of is the accordion-style doors on the unloading bay. The design came out of a straightforward need to allow an overhead crane to be able to get in and lift bearings off the ramp. Figuring out all the geometry and details in SolidWorks to make it work cleanly was a satisfying puzzle to solve.
+        </p>
+        <p>
+            The surface defect detection system used a laser profilometer, which scanned the bearing surfaces as the dolly rotated the bearing along its c-axis. To prevent the laser from scattering during the scan, we used an enhanced aluminum surface mirror to reflect the beam cleanly onto the bearing. It was one of the more precise and interesting subsystems on the machine.
+        </p>
+        <p>
+            The most challenging and ultimately frustrating part of the project was getting the stepper motors to communicate properly with the Keyence PLC. For six months I worked back and forth with engineers from both companies trying to get the motors to move a precise amount, something as basic as "turn 30 degrees." Neither side could solve it, and neither side would take ownership of the problem: Keyence blamed the motor manufacturer, and the motor manufacturer blamed Keyence. Despite never giving up on debugging the issue, we never found the root cause.
+        </p>
+        <p>
+            What I was able to do was get the motors running in manual velocity mode, and from there I built out the entire system flow in ladder logic. I wrote a state-machine style program that reads all control panel inputs continuously but changes their behavior depending on the current state of the machine. I got the machine to home itself, demonstrate the measurement sequence, and display status lights reflecting the current operating state. It's worth noting that the Go/No-Go decision system was also a known limitation: it used a passive mechanical indicator rather than a fully automated output, and redesigning it was flagged as a next step for future teams. It wasn't full automation, but it was a functional, demonstrable system.
+        </p>
+        <h3>Project Photos</h3>
+        <div class="project-gallery">
+            <figure class="project-media-card">
+                <img src="media/SeniorDesign/Full%20System%20A.jpg" alt="Automated train bearing inspection machine full system view A">
+                <figcaption>Full System View A</figcaption>
+            </figure>
+            <figure class="project-media-card">
+                <img src="media/SeniorDesign/Full%20System%20B.jpg" alt="Automated train bearing inspection machine full system view B">
+                <figcaption>Full System View B</figcaption>
+            </figure>
+            <figure class="project-media-card">
+                <img src="media/SeniorDesign/Dolly%20Mechanism.jpg" alt="Close-up of the dolly mechanism used in the inspection system">
+                <figcaption>Dolly Mechanism</figcaption>
+            </figure>
+            <figure class="project-media-card">
+                <img src="media/SeniorDesign/Electrical%20Panel.jpg" alt="Electrical control panel for the automated inspection machine">
+                <figcaption>Electrical Panel</figcaption>
+            </figure>
+        </div>
+        <p>
+            We gave multiple live demonstrations during our engineering expo, running the machine through its sequence in front of visitors and reviewers. After the project wrapped, the machine was delivered to Wabtec and installed in one of their warehouses.
+        </p>
+        <p>
+            Honestly, this wasn't a project I walked away from feeling proud of. Despite it being one of the most technically complex things I've worked on, the motor issue was never resolved, and full autonomy was never achieved, which has always left me feeling let down by the overall outcome. I know I could have built an even more impressive system if those issues had been worked out. But what I can say is that I gave it everything I had given the circumstances, and the work I did on the wiring, the safety cage, and the control software was genuinely solid.
+        </p>
+        <h3>Final Poster</h3>
+        <p><a href="media/SeniorDesign/Final%20Poster.pdf" target="_blank" rel="noopener">Open the full-size poster PDF in a new tab</a></p>
+        <div class="project-poster-wrap">
+            <iframe class="project-poster" src="media/SeniorDesign/Final%20Poster.pdf" title="Senior Design final poster"></iframe>
+        </div>
     </div>
 
     <div id="DataCenter">
