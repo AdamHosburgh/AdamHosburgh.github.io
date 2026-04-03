@@ -23,9 +23,19 @@
     <div id="SeniorDesign">
         <h2>Automated Train Bearing Inspection Machine</h2>
         <h4>Senior Design Project | Electromechanical Engineer</h4>
-        <h3>Demo</h3>
-        <div class="project-video">
-            <iframe src="https://www.youtube.com/embed/c9q2MfCBLUs" title="Automated Train Bearing Inspection Machine Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="project-top-media">
+            <div>
+                <h3>Demo</h3>
+                <div class="project-video">
+                    <iframe src="https://www.youtube.com/embed/c9q2MfCBLUs" title="Automated Train Bearing Inspection Machine Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div>
+                <h3>Final Poster</h3>
+                <a class="project-poster-link" href="media/SeniorDesign/Final%20Poster.jpg" target="_blank" rel="noopener">
+                    <img class="project-poster-image" src="media/SeniorDesign/Final%20Poster.jpg" alt="Senior Design final poster">
+                </a>
+            </div>
         </div>
         <p>
             This project was my senior capstone, and it was anything but simple. As a continuation project, my team inherited a partially built machine from the previous year's senior design team: a 10-foot-long automated inspection system designed for Wabtec, a real industrial client in the locomotive industry. The machine was built to replace a manual inspection process that took operators 10-15 minutes per bearing using dial indicators. The goal was to handle up to five 70-pound train bearings at a time, moving them through a series of custom measurement stations to check inner and outer diameters to within 0.0001", scan bearing surfaces for scratches larger than 0.001", and determine each bearing's out-of-roundness. Bearings that passed inspection were automatically marked and ejected down a ramp, ready to be picked up by an overhead crane.
@@ -45,35 +55,24 @@
         <p>
             What I was able to do was get the motors running in manual velocity mode, and from there I built out the entire system flow in ladder logic. I wrote a state-machine style program that reads all control panel inputs continuously but changes their behavior depending on the current state of the machine. I got the machine to home itself, demonstrate the measurement sequence, and display status lights reflecting the current operating state. It's worth noting that the Go/No-Go decision system was also a known limitation: it used a passive mechanical indicator rather than a fully automated output, and redesigning it was flagged as a next step for future teams. It wasn't full automation, but it was a functional, demonstrable system.
         </p>
-        <h3>Project Photos</h3>
-        <div class="project-gallery">
-            <figure class="project-media-card">
-                <img src="media/SeniorDesign/Full%20System%20A.jpg" alt="Automated train bearing inspection machine full system view A">
-                <figcaption>Full System View A</figcaption>
-            </figure>
-            <figure class="project-media-card">
-                <img src="media/SeniorDesign/Full%20System%20B.jpg" alt="Automated train bearing inspection machine full system view B">
-                <figcaption>Full System View B</figcaption>
-            </figure>
-            <figure class="project-media-card">
-                <img src="media/SeniorDesign/Dolly%20Mechanism.jpg" alt="Close-up of the dolly mechanism used in the inspection system">
-                <figcaption>Dolly Mechanism</figcaption>
-            </figure>
-            <figure class="project-media-card">
-                <img src="media/SeniorDesign/Electrical%20Panel.jpg" alt="Electrical control panel for the automated inspection machine">
-                <figcaption>Electrical Panel</figcaption>
-            </figure>
-        </div>
         <p>
             We gave multiple live demonstrations during our engineering expo, running the machine through its sequence in front of visitors and reviewers. After the project wrapped, the machine was delivered to Wabtec and installed in one of their warehouses.
         </p>
         <p>
             Honestly, this wasn't a project I walked away from feeling proud of. Despite it being one of the most technically complex things I've worked on, the motor issue was never resolved, and full autonomy was never achieved, which has always left me feeling let down by the overall outcome. I know I could have built an even more impressive system if those issues had been worked out. But what I can say is that I gave it everything I had given the circumstances, and the work I did on the wiring, the safety cage, and the control software was genuinely solid.
         </p>
-        <h3>Final Poster</h3>
-        <p><a href="media/SeniorDesign/Final%20Poster.pdf" target="_blank" rel="noopener">Open the full-size poster PDF in a new tab</a></p>
-        <div class="project-poster-wrap">
-            <iframe class="project-poster" src="media/SeniorDesign/Final%20Poster.pdf" title="Senior Design final poster"></iframe>
+        <h3>Project Photos</h3>
+        <div class="project-slideshow" id="seniorDesignSlideshow">
+            <button type="button" class="slideshow-button" id="seniorDesignPrev" aria-label="Previous photo">Prev</button>
+            <img id="seniorDesignSlideImage" src="media/SeniorDesign/Full%20System%20A.jpg" alt="Automated train bearing inspection machine full system view A">
+            <button type="button" class="slideshow-button" id="seniorDesignNext" aria-label="Next photo">Next</button>
+        </div>
+        <p class="slideshow-caption" id="seniorDesignSlideCaption">Full System View A</p>
+        <div class="slideshow-dots" id="seniorDesignSlideDots" aria-label="Slideshow image selector">
+            <button type="button" class="slideshow-dot active" data-index="0" aria-label="Show photo 1"></button>
+            <button type="button" class="slideshow-dot" data-index="1" aria-label="Show photo 2"></button>
+            <button type="button" class="slideshow-dot" data-index="2" aria-label="Show photo 3"></button>
+            <button type="button" class="slideshow-dot" data-index="3" aria-label="Show photo 4"></button>
         </div>
     </div>
 
@@ -117,6 +116,63 @@
 <div id="footer"></div>
 </body>
 <script>
+    (function() {
+        var slides = [
+            {
+                src: "media/SeniorDesign/Full%20System%20A.jpg",
+                caption: "Full System View A",
+                alt: "Automated train bearing inspection machine full system view A"
+            },
+            {
+                src: "media/SeniorDesign/Full%20System%20B.jpg",
+                caption: "Full System View B",
+                alt: "Automated train bearing inspection machine full system view B"
+            },
+            {
+                src: "media/SeniorDesign/Dolly%20Mechanism.jpg",
+                caption: "Dolly Mechanism",
+                alt: "Close-up of the dolly mechanism used in the inspection system"
+            },
+            {
+                src: "media/SeniorDesign/Electrical%20Panel.jpg",
+                caption: "Electrical Panel",
+                alt: "Electrical control panel for the automated inspection machine"
+            }
+        ];
+
+        var index = 0;
+        var imageEl = document.getElementById("seniorDesignSlideImage");
+        var captionEl = document.getElementById("seniorDesignSlideCaption");
+        var prevEl = document.getElementById("seniorDesignPrev");
+        var nextEl = document.getElementById("seniorDesignNext");
+        var dots = document.querySelectorAll("#seniorDesignSlideDots .slideshow-dot");
+
+        function renderSlide(newIndex) {
+            index = (newIndex + slides.length) % slides.length;
+            imageEl.src = slides[index].src;
+            imageEl.alt = slides[index].alt;
+            captionEl.textContent = slides[index].caption;
+
+            dots.forEach(function(dot, dotIndex) {
+                dot.classList.toggle("active", dotIndex === index);
+            });
+        }
+
+        prevEl.addEventListener("click", function() {
+            renderSlide(index - 1);
+        });
+
+        nextEl.addEventListener("click", function() {
+            renderSlide(index + 1);
+        });
+
+        dots.forEach(function(dot) {
+            dot.addEventListener("click", function() {
+                renderSlide(parseInt(dot.getAttribute("data-index"), 10));
+            });
+        });
+    })();
+
   var pageName = "Projects";
   var pageTitle="Adam Hosburgh Projects";
 </script>
