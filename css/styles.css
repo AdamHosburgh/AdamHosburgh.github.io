@@ -279,12 +279,6 @@ iframe {
     margin: 0 0 8px;
 }
 
-.project-section-title {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .project-top-media > div {
     margin-bottom: 20px;
 }
@@ -297,7 +291,7 @@ iframe {
     border-radius: 8px;
     overflow: hidden;
     background-color: #000;
-    margin: 0 auto;
+    margin: 0;
 }
 
 .project-video iframe {
@@ -316,7 +310,7 @@ iframe {
     border-radius: 8px;
     overflow: hidden;
     background-color: #0F172A;
-    margin: 0 auto;
+    margin: 0;
 }
 
 .project-poster-image {
@@ -334,7 +328,7 @@ iframe {
     align-items: center;
     gap: 12px;
     width: min(calc(100% - 40px), 960px);
-    margin: 0 auto;
+    margin: 0 20px;
 }
 
 .project-slideshow img {
@@ -353,18 +347,18 @@ iframe {
 
 .slideshow-caption {
     width: min(calc(100% - 40px), 960px);
-    margin: 8px auto 10px;
+    margin: 8px 20px 10px;
     font-weight: bold;
     color: #F4F4F4;
-    text-align: center;
+    text-align: left;
 }
 
 .slideshow-dots {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 10px;
     width: min(calc(100% - 40px), 960px);
-    margin: 0 auto 20px;
+    margin: 0 20px 20px;
 }
 
 .slideshow-dot {
