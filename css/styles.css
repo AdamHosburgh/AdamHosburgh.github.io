@@ -304,7 +304,9 @@ iframe {
 }
 
 .project-poster-link {
-    display: block;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
     width: 100%;
     max-width: 960px;
     border: none;
@@ -316,11 +318,13 @@ iframe {
 
 .project-poster-image {
     display: block;
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     height: auto;
     max-height: 560px;
     object-fit: contain;
     background-color: #0F172A;
+    margin: 0;
 }
 
 .project-slideshow {
