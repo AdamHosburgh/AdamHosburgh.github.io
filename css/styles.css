@@ -350,12 +350,12 @@ iframe {
     margin: 8px 20px 10px;
     font-weight: bold;
     color: #F4F4F4;
-    text-align: left;
+    text-align: center;
 }
 
 .slideshow-dots {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 10px;
     width: min(calc(100% - 40px), 960px);
     margin: 0 20px 20px;
