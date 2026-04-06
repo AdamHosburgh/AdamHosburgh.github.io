@@ -109,7 +109,53 @@
 
     <div id="CrystalLamp">
         <h2>Magic Crystal Lamp</h2>
-        <p>Test</p>
+        <h5>Personal Project</h5>
+        <h3>Project Photos</h3>
+        <div class="project-slideshow" id="crystalLampSlideshow">
+            <button type="button" class="slideshow-button" id="crystalLampPrev" aria-label="Previous photo">Prev</button>
+            <img id="crystalLampSlideImage" src="media/CrystalLamp/V1%20Demo%201.jpg" alt="Crystal lamp V1 demo 1">
+            <button type="button" class="slideshow-button" id="crystalLampNext" aria-label="Next photo">Next</button>
+        </div>
+        <p class="slideshow-caption" id="crystalLampSlideCaption">V1 Demo 1</p>
+        <div class="slideshow-dots" id="crystalLampSlideDots" aria-label="Slideshow image selector">
+            <button type="button" class="slideshow-dot active" data-index="0" aria-label="Show photo 1"></button>
+            <button type="button" class="slideshow-dot" data-index="1" aria-label="Show photo 2"></button>
+            <button type="button" class="slideshow-dot" data-index="2" aria-label="Show photo 3"></button>
+            <button type="button" class="slideshow-dot" data-index="3" aria-label="Show photo 4"></button>
+            <button type="button" class="slideshow-dot" data-index="4" aria-label="Show photo 5"></button>
+            <button type="button" class="slideshow-dot" data-index="5" aria-label="Show photo 6"></button>
+            <button type="button" class="slideshow-dot" data-index="6" aria-label="Show photo 7"></button>
+            <button type="button" class="slideshow-dot" data-index="7" aria-label="Show photo 8"></button>
+            <button type="button" class="slideshow-dot" data-index="8" aria-label="Show photo 9"></button>
+            <button type="button" class="slideshow-dot" data-index="9" aria-label="Show photo 10"></button>
+            <button type="button" class="slideshow-dot" data-index="10" aria-label="Show photo 11"></button>
+            <button type="button" class="slideshow-dot" data-index="11" aria-label="Show photo 12"></button>
+        </div>
+        <h3>Description</h3>
+        <p>
+            I've wanted a better bedside light for years. The one I had was a small battery-powered electric candle, which did the job in a basic sense: low light for winding down before bed, portable enough to carry to the bathroom while brushing my teeth, dim enough that it didn't jolt my brain back awake. But the switch was on the bottom and nearly impossible to find in the dark, and every time the batteries died, it would sit dead on my nightstand for weeks because I only ever thought about it at the exact moment I needed it.
+        </p>
+        <p>
+            The replacement I had in mind started with an image from fantasy: the wall torches in every dungeon and castle in every Lord of the Rings adaptation and Elder Scrolls game I've ever played. Those torches have a home on the wall, but they're also portable. The hero grabs one and carries it. That's the interaction I wanted: a light that lives somewhere specific, charges there automatically, and is ready to grab whenever I need it. Since open flames in the bedroom are a hard no, I landed on the next best thing aesthetically: a magic crystal.
+        </p>
+        <p>
+            The concept was to build a glowing crystal-shaped lamp with no visible switches or buttons. The interactions needed to feel intuitive, almost magical. Pick it up and it turns on. Shake it and it gets brighter. Set it down and it slowly dims out on its own. Wave your hand over it and it responds. The base station would handle wireless charging automatically whenever the lamp was set down in it.
+        </p>
+        <p>
+            I designed the crystal shell in SolidWorks, working out a faceted geometric shape that reads as a natural crystal formation. Getting the shape right was actually pretty straightforward, and I used the same model to cut a negative into the base station so the two pieces fit together cleanly. I printed everything in PLA on an FDM printer, which got me to a functional first prototype fast.
+        </p>
+        <p>
+            Inside the crystal, I packed an Arduino Nano, a BNO055 IMU for motion detection, a VL53L1X time-of-flight sensor for hand gesture recognition, three strips of individually addressable WS2812B RGB LEDs, an 18650 LiPo battery, and a Qi wireless charging coil. The base station holds the matching Qi transmitter. All of it communicates through the Arduino, with the IMU detecting shakes and pickups and the TOF sensor reading hand proximity through a small window in the shell.
+        </p>
+        <p>
+            The first version of the crystal shell, printed in purple glow-in-the-dark PLA, looked fine in the light but cheap when lit from inside. The facets didn't diffuse the LEDs the way I wanted, and the plastic surface killed the effect. That sent me toward resin casting as the path for a future shell, where I can control translucency, add sparkle, and get something that actually looks like a gemstone rather than a plastic toy.
+        </p>
+        <p>
+            V1 is fully functional and has been installed in my bathroom for several months. It works exactly the way I designed it. The things I want to fix in V2 are clear to me now that I've lived with it: the outer housing is bigger than it needs to be, the only way to fully power it down is to open the housing and unplug the battery, and the TOF sensor requires a visible hole in the shell that breaks the aesthetic. I've found a radar-based sensor (the RD-03E) that can see through solid plastic, which would let me seal the shell completely. I also want to experiment with embedding magnets in the base and the crystal to give the lamp a slight resistance when you pull it out, like it's being held in place by something.
+        </p>
+        <p>
+            The longer-term plan is a resin-cast shell, a cleaner internal layout, and eventually a version I can make in small batches and sell. A single finished lamp should run around $50 in materials. Getting there will take a few more prototypes, but the core of what I wanted to build is already sitting on my bathroom counter and working every night.
+        </p>
     </div>
 
 </div>
@@ -147,6 +193,103 @@
         var prevEl = document.getElementById("seniorDesignPrev");
         var nextEl = document.getElementById("seniorDesignNext");
         var dots = document.querySelectorAll("#seniorDesignSlideDots .slideshow-dot");
+
+        function renderSlide(newIndex) {
+            index = (newIndex + slides.length) % slides.length;
+            imageEl.src = slides[index].src;
+            imageEl.alt = slides[index].alt;
+            captionEl.textContent = slides[index].caption;
+
+            dots.forEach(function(dot, dotIndex) {
+                dot.classList.toggle("active", dotIndex === index);
+            });
+        }
+
+        prevEl.addEventListener("click", function() {
+            renderSlide(index - 1);
+        });
+
+        nextEl.addEventListener("click", function() {
+            renderSlide(index + 1);
+        });
+
+        dots.forEach(function(dot) {
+            dot.addEventListener("click", function() {
+                renderSlide(parseInt(dot.getAttribute("data-index"), 10));
+            });
+        });
+    })();
+
+    (function() {
+        var slides = [
+            {
+                src: "media/CrystalLamp/V1%20Demo%201.jpg",
+                caption: "V1 Demo 1",
+                alt: "Crystal lamp V1 demo 1"
+            },
+            {
+                src: "media/CrystalLamp/V1%20Demo%202.jpg",
+                caption: "V1 Demo 2",
+                alt: "Crystal lamp V1 demo 2"
+            },
+            {
+                src: "media/CrystalLamp/V1%20Demo%203.jpg",
+                caption: "V1 Demo 3",
+                alt: "Crystal lamp V1 demo 3"
+            },
+            {
+                src: "media/CrystalLamp/V1%20Demo%204.jpg",
+                caption: "V1 Demo 4",
+                alt: "Crystal lamp V1 demo 4"
+            },
+            {
+                src: "media/CrystalLamp/V1%20Demo%205.jpg",
+                caption: "V1 Demo 5",
+                alt: "Crystal lamp V1 demo 5"
+            },
+            {
+                src: "media/CrystalLamp/V1%20Internals.jpg",
+                caption: "V1 Internals",
+                alt: "Internal components of the crystal lamp V1"
+            },
+            {
+                src: "media/CrystalLamp/Inspiration.png",
+                caption: "Inspiration",
+                alt: "Crystal lamp inspiration reference"
+            },
+            {
+                src: "media/CrystalLamp/Base%20Station%20Inspiration.jpe",
+                caption: "Base Station Inspiration",
+                alt: "Base station inspiration reference for the crystal lamp"
+            },
+            {
+                src: "media/CrystalLamp/Original%20Render.png",
+                caption: "Original Render",
+                alt: "Original SolidWorks render of the crystal lamp"
+            },
+            {
+                src: "media/CrystalLamp/First%20Shell%203D%20Print.jpg",
+                caption: "First Shell 3D Print",
+                alt: "First 3D printed crystal lamp shell in purple glow-in-the-dark PLA"
+            },
+            {
+                src: "media/CrystalLamp/Prototype%20Electronics.png",
+                caption: "Prototype Electronics",
+                alt: "Internal electronics packed inside the crystal lamp prototype"
+            },
+            {
+                src: "media/CrystalLamp/Alternate%20Color.png",
+                caption: "Alternate Color",
+                alt: "Crystal lamp shown in an alternate color"
+            }
+        ];
+
+        var index = 0;
+        var imageEl = document.getElementById("crystalLampSlideImage");
+        var captionEl = document.getElementById("crystalLampSlideCaption");
+        var prevEl = document.getElementById("crystalLampPrev");
+        var nextEl = document.getElementById("crystalLampNext");
+        var dots = document.querySelectorAll("#crystalLampSlideDots .slideshow-dot");
 
         function renderSlide(newIndex) {
             index = (newIndex + slides.length) % slides.length;
